@@ -1,0 +1,11 @@
+server.key
+server.crt
+flows.json
+.nodered
+.flows.json.backup
+
+# Dependency directory
+node_modules
+
+# Yarn
+yarn-error.log

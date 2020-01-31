@@ -1,0 +1,8 @@
+{
+  "ignoreRoot": [".git", "test"],
+  "restartable": "rs",
+  "ignore": ["node_modules/**/node_modules", "node_modules/**/test", "*.log"],
+  "verbose": true,
+  "watch": ["src/", "nodes/", "node_modules/node-red-*"],
+  "ext": "js json htm html css"
+}
