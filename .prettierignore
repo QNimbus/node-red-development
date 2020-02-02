@@ -1,0 +1,28 @@
+### Please check .eslintignore and .gitignore when changing this file
+
+## Exclude everything by default
+/**/*
+
+## But don't exclude folders (i.e. only exclude files)
+!/**/*/
+
+## file extensions
+!*.css
+!*.js
+!*.json
+!*.jsx
+!*.less
+!*.md
+!*.mdx
+!*.ts
+!*.tsx
+!*.yml
+
+## Overrides
+
+.vscode
+.nodered
+
+!**/node_modules/
+**/node_modules/*
+!**/node_modules/node-red-contrib*/

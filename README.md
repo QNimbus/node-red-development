@@ -6,6 +6,7 @@ A simple and embedded NodeRED setup for easy Node development
 
 - [Table of contents](#table-of-contents)
 - [Release Notes](#release-notes)
+  - [v0.1.1](#v011)
   - [v0.1.0](#v010)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -24,9 +25,18 @@ A simple and embedded NodeRED setup for easy Node development
 - [Installing NodeRED nodes](#installing-nodered-nodes)
 - [NPM Scripts](#npm-scripts)
 - [Security](#security)
+- [TL;DR](#tldr)
 - [To do](#to-do)
 
 ## Release Notes
+
+### v0.1.1
+
+- Added VSCode task to enable Prettier for node_modules that are symlinked (`yarn link`). This task can optionally be run as a `preLaunchTask` for debugging.
+- Added `.prettierignore` file with basic configuration.
+- Added description about how to add a git submodule in the [Installing NodeRED nodes](#installing-nodered-nodes) section.
+- Added `local_modules` to `.gitignore` file.
+- Added a [TL;DR](#tldr) section with a guick install guide of sorts.
 
 ### v0.1.0
 
@@ -179,6 +189,10 @@ NodeRED nodes are installed as **npm** modules. With this project template you h
 
     If you use the setup to isolate the development of a node-red node you should use `yarn link` in your repository folder. Then run `yarn link <repository-name>` in the **node-red-development** folder to link and install your custom node. Use `yarn start-debug` to start the node-red instance with debugging features. See [npm scripts](#npm-scripts) for more information.
 
+    _Note: You can add a Node as a git submodule in a local folder (e.g. `local_modules/`) and `yarn link` from there. This way you have all the benefits of the projects linters as well as debugging your Node under development. Do not forget to run `yarn install` in your cloned submodule to download all it's dependencies. To clone a repository as a submodule:_
+
+    > \$ git submodule add -b master [git@github.com:QNimbus/node-red-contrib-openhab-v2.git](https://github.com/QNimbus/node-red-contrib-openhab-v2.git) local_modules/node-red-contrib-openhab-v2
+
 ## NPM Scripts
 
 Execute "node server.js"
@@ -210,6 +224,45 @@ _\* WARNING:_ The **server.key** and **server.crt** will be overwritten if they 
 ## Security
 
 Because this template has NodeRED embedded into a standard ExpressJS web server you should apply security using ExpressJS features rather than NodeRED. This gives you far more control overall - however if you need to provide read-only access to the NodeRED admin UI you will also need to configure NodeRED security in the **settings.js** file (_nrSettings.adminAuth_). See [Securing Node-RED](http://nodered.org/docs/security.html).
+
+## TL;DR
+
+Follow these steps to install a working development environment in VSCode for a specific NodeRED Node:
+
+**NodeJS**
+
+- Install **[NodeJS](https://nodejs.org/en/download/)** for your platform
+- Install **yarn** globally (`npm install yarn --global`)
+
+**VSCode**
+
+- Install VSCode extension **[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**
+- Install VSCode extension **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)**
+- Install VSCode extension **[JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint)**
+
+**Repository: QNimbus/node-red-development**
+
+- Clone repository into suitable location  
+  `./> $ git clone https://github.com/QNimbus/node-red-development.git`
+
+- _Optional_: Start a new development branch  
+  `./> $ git checkout -b dev`
+
+- Install dependencies  
+  `./> $ yarn install`
+
+- Clone Node repository as submodule, for example  
+  `./> $ git submodule add -b master git@github.com:QNimbus/node-red-contrib-openhab-v2.git local_modules/node-red-contrib-openhab-v2`
+
+- Install submodule dependencies  
+  `./local_modules/node-red-contrib-openhab-v2/> $ yarn install`
+
+- Link submodule into `node-red-development`  
+  `./local_modules/node-red-contrib-openhab-v2/> $ yarn link`  
+  `./> $ yarn link node-red-contrib-openhab-v2`
+
+- Start VSCode and hit <kbd>F5</kbd> to start debugging!  
+  Open a browser and go to the [NodeRED Admin interface](http://localhost:1880/admin) _(http://localhost:1880/admin)_
 
 ## To do
 

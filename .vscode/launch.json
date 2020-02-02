@@ -16,7 +16,8 @@
         "runtimeExecutable": "yarn.cmd"
       },
       "runtimeArgs": ["run", "start-debug"],
-      "port": 9229
+      "port": 9229,
+      // "preLaunchTask": "prettier - node-red-contrib"
     }
   ]
 }

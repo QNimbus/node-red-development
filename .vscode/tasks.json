@@ -1,0 +1,12 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "prettier - node-red-contrib",
+      "type": "shell",
+      "command": "find . -type l -name node-red-contrib* -exec ./node_modules/.bin/prettier --config .prettierrc --ignore-path .prettierignore --with-node-modules --write \"{}/**\" \\;"
+    }
+  ]
+}

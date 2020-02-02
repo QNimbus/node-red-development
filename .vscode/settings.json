@@ -1,4 +1,7 @@
 {
   "prettier.endOfLine": "lf",
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "editor.tabSize": 2,
+  "prettier.printWidth": 160,
+  "prettier.singleQuote": true
 }
