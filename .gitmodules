@@ -1,0 +1,4 @@
+[submodule "local_modules/node-red-contrib-openhab-v2"]
+	path = local_modules/node-red-contrib-openhab-v2
+	url = git@github.com:QNimbus/node-red-contrib-openhab-v2.git
+	branch = master
