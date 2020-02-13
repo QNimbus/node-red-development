@@ -9,6 +9,7 @@
 ## file extensions
 !*.css
 !*.html
+!*.json
 !*.js
 !*.json
 !*.jsx

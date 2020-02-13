@@ -4,5 +4,6 @@
   "prettier.printWidth": 160,
   "prettier.singleQuote": true,
   "html.format.enable": true,
-  "html.format.indentInnerHtml": true
+  "html.format.indentInnerHtml": true,
+  "debug.node.autoAttach": "on"
 }
